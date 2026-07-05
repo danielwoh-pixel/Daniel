@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="VS.talent services — Executive search, talent intelligence, and creative solutions for footwear and apparel brands.">
+  <title>Services | VS.talent</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a href="index.html" class="site-logo">VS<span>.talent</span></a>
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+      <nav class="site-nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html" class="is-active">Services</a>
+        <a href="insights.html">Insights</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow">Services</p>
+        <h1 class="display display--sm">Advisory built for design talent decisions.</h1>
+      </div>
+    </section>
+
+    <section class="block">
+      <div class="container">
+        <div class="capability-list">
+          <article class="capability">
+            <p class="capability__index">Search</p>
+            <h2 class="capability__title">Executive Search</h2>
+            <p class="capability__desc">Global design leadership hiring across footwear, apparel, graphics, CMF and innovation.</p>
+          </article>
+          <article class="capability">
+            <p class="capability__index">Intelligence</p>
+            <h2 class="capability__title">Talent Intelligence</h2>
+            <p class="capability__desc">Monthly market intelligence and talent analytics.</p>
+          </article>
+          <article class="capability">
+            <p class="capability__index">Creative</p>
+            <h2 class="capability__title">Creative Solutions</h2>
+            <p class="capability__desc">Freelance designers, consultants and creative project support.</p>
+          </article>
+        </div>
+        <div class="block__footer">
+          <a href="contact.html" class="text-link">Discuss your design talent needs →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__grid">
+        <div class="site-footer__brand">
+          <a href="index.html" class="site-logo">VS<span>.talent</span></a>
+          <p>Design talent intelligence · Footwear &amp; Apparel</p>
+        </div>
+        <div>
+          <h5>Company</h5>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="insights.html">Insights</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Services</h5>
+          <ul>
+            <li><a href="services.html">Executive Search</a></li>
+            <li><a href="services.html">Talent Intelligence</a></li>
+            <li><a href="services.html">Creative Outsourcing</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Contact</h5>
+          <ul>
+            <li>Daniel Woh</li>
+            <li><a href="mailto:daniel.woh@vstalent.com">daniel.woh@vstalent.com</a></li>
+            <li>Tokyo | Shanghai</li>
+          </ul>
+        </div>
+      </div>
+      <div class="site-footer__bottom">
+        <p>&copy; 2026 VS.talent Consulting Co., Ltd.</p>
+        <div class="site-footer__locs"><span>Tokyo</span><span>Shanghai</span></div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelector('.nav-toggle')?.addEventListener('click', () => {
+      document.querySelector('.site-nav')?.classList.toggle('is-open');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact VS.talent — Design talent intelligence and advisory for footwear and apparel brands.">
+  <title>Contact | VS.talent</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a href="index.html" class="site-logo">VS<span>.talent</span></a>
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+      <nav class="site-nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="insights.html">Insights</a>
+        <a href="contact.html" class="is-active">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow">Contact</p>
+        <h1 class="display display--sm">Discuss a mandate.</h1>
+      </div>
+    </section>
+
+    <section class="block">
+      <div class="container split">
+        <div>
+          <p class="body-text">For executive search mandates, talent intelligence briefings, or creative outsourcing inquiries.</p>
+        </div>
+        <div class="contact-card">
+          <p class="contact-card__name">Daniel Woh</p>
+          <p class="contact-card__loc">Tokyo | Shanghai</p>
+          <a href="mailto:daniel.woh@vstalent.com" class="contact-card__email">daniel.woh@vstalent.com</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="request-report" class="block block--soft">
+      <div class="container split">
+        <div>
+          <p class="eyebrow">Intelligence Access</p>
+          <h2 class="heading">Request Talent Intelligence Report</h2>
+          <p class="body-text" style="margin-top: 24px;">Full reports contain proprietary candidate analytics and are shared with qualified brand partners under confidentiality.</p>
+        </div>
+        <form class="request-form" id="report-request-form" novalidate>
+          <div class="form-field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required autocomplete="name">
+          </div>
+          <div class="form-field">
+            <label for="company">Company</label>
+            <input type="text" id="company" name="company" required autocomplete="organization">
+          </div>
+          <div class="form-field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required autocomplete="email">
+          </div>
+          <div class="form-field form-field--optional">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="4"></textarea>
+          </div>
+          <label class="form-checkbox">
+            <input type="checkbox" id="consent" name="consent" required>
+            <span>I agree to receive VS.talent intelligence materials</span>
+          </label>
+          <div class="form-submit">
+            <button type="submit" class="btn btn--fill">Submit Request</button>
+          </div>
+        </form>
+      </div>
+      <div class="container">
+        <p class="confidentiality-note">Reports are shared upon request due to confidentiality of candidate data.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__grid">
+        <div class="site-footer__brand">
+          <a href="index.html" class="site-logo">VS<span>.talent</span></a>
+          <p>Design talent intelligence · Footwear &amp; Apparel</p>
+        </div>
+        <div>
+          <h5>Company</h5>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="insights.html">Insights</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Services</h5>
+          <ul>
+            <li><a href="services.html">Executive Search</a></li>
+            <li><a href="services.html">Talent Intelligence</a></li>
+            <li><a href="services.html">Creative Outsourcing</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Contact</h5>
+          <ul>
+            <li>Daniel Woh</li>
+            <li><a href="mailto:daniel.woh@vstalent.com">daniel.woh@vstalent.com</a></li>
+            <li>Tokyo | Shanghai</li>
+          </ul>
+        </div>
+      </div>
+      <div class="site-footer__bottom">
+        <p>&copy; 2026 VS.talent Consulting Co., Ltd.</p>
+        <div class="site-footer__locs"><span>Tokyo</span><span>Shanghai</span></div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelector('.nav-toggle')?.addEventListener('click', () => {
+      document.querySelector('.site-nav')?.classList.toggle('is-open');
+    });
+
+    document.getElementById('report-request-form')?.addEventListener('submit', e => {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const company = document.getElementById('company').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      const consent = document.getElementById('consent').checked;
+
+      if (!name || !company || !email || !consent) return;
+
+      const subject = encodeURIComponent('Talent Intelligence Report Request');
+      const body = encodeURIComponent(
+        `Name: ${name}\nCompany: ${company}\nEmail: ${email}\n` +
+        (message ? `Message: ${message}\n` : '') +
+        `Consent: I agree to receive VS.talent intelligence materials`
+      );
+
+      window.location.href = `mailto:daniel.woh@vstalent.com?subject=${subject}&body=${body}`;
+    });
+  </script>
+</body>
+</html>
