@@ -1,0 +1,11 @@
+# Private report files — available by request only
+reports/*.pdf
+!reports/.gitkeep
+
+# Extraction / working files
+_july_extract/
+report_extract_*.txt
+
+# OS
+.DS_Store
+Thumbs.db
