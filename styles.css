@@ -296,6 +296,83 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   color: var(--muted-light);
 }
 
+/* July key insights */
+
+.key-insights {
+  list-style: none;
+  margin: 0 0 var(--space-section);
+  padding: 0;
+  max-width: 720px;
+  border-top: 1px solid var(--rule);
+}
+
+.key-insights li {
+  padding: 18px 0;
+  border-bottom: 1px solid var(--rule);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.75;
+  color: var(--muted);
+}
+
+.key-insights strong {
+  font-weight: 500;
+  color: var(--text);
+}
+
+/* Service detail pages */
+
+.service-detail {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: clamp(24px, 4vw, 48px);
+  padding: clamp(48px, 7vw, 80px) 0;
+  border-top: 1px solid var(--rule);
+}
+
+.service-detail:last-of-type {
+  border-bottom: 1px solid var(--rule);
+}
+
+.service-detail__index {
+  font-size: 13px;
+  color: var(--muted-light);
+  padding-top: 10px;
+}
+
+.service-detail__lead {
+  margin-top: 20px;
+  font-size: 1.0625rem;
+  font-weight: 400;
+  line-height: 1.8;
+  color: var(--muted);
+  max-width: 58ch;
+}
+
+.service-detail__meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(28px, 4vw, 40px);
+  margin-top: 40px;
+  max-width: 840px;
+}
+
+.service-detail__meta dt {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted-light);
+  margin-bottom: 8px;
+}
+
+.service-detail__meta dd {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
 /* Market insights */
 
 .insight-feature {
@@ -1017,7 +1094,8 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   .report-intro,
   .principle-grid,
   .team-grid,
-  .topic-grid {
+  .topic-grid,
+  .service-detail__meta {
     grid-template-columns: 1fr;
   }
 
