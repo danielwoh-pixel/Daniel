@@ -1,8 +1,6 @@
-# Private / working PDFs stay local; current month is published
+# Report PDFs are not published — request-only access
 reports/*.pdf
 !reports/.gitkeep
-!reports/VS.talent Design Candidates Report_August 2026.pdf
-!reports/VS.talent Design Candidates Report_August 2026_CN.pdf
 
 # Extraction / working files
 _july_extract/

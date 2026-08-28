@@ -48,9 +48,9 @@
     <section id="request-report" class="block block--soft">
       <div class="container split">
         <div>
-          <p class="eyebrow">Request Talent Mapping</p>
-          <h2 class="heading">Named landscapes for competitor and adjacent brands.</h2>
-          <p class="body-text" style="margin-top: 24px;">Named org charts and talent landscapes for competitor and adjacent brands. Shared with qualified brand partners under confidentiality.</p>
+          <p class="eyebrow">Enquiry</p>
+          <h2 class="heading">Tell us how we can help.</h2>
+          <p class="body-text" style="margin-top: 24px;">For executive search, talent mapping, talent intelligence, or a copy of the monthly Design Candidates Report. Shared with qualified brand partners under confidentiality.</p>
         </div>
         <form class="request-form" id="report-request-form" novalidate>
           <div class="form-field">
@@ -65,6 +65,25 @@
             <label for="email">Email</label>
             <input type="email" id="email" name="email" required autocomplete="email">
           </div>
+          <fieldset class="form-field form-interest">
+            <legend>I'm interested in</legend>
+            <label class="form-radio">
+              <input type="radio" name="interest" value="Executive Search" required>
+              <span>Executive Search</span>
+            </label>
+            <label class="form-radio">
+              <input type="radio" name="interest" value="Talent Mapping">
+              <span>Talent Mapping</span>
+            </label>
+            <label class="form-radio">
+              <input type="radio" name="interest" value="Talent Intelligence">
+              <span>Talent Intelligence</span>
+            </label>
+            <label class="form-radio">
+              <input type="radio" name="interest" value="Request Monthly Report">
+              <span>Request Monthly Report</span>
+            </label>
+          </fieldset>
           <div class="form-field form-field--optional">
             <label for="message">Message</label>
             <textarea id="message" name="message" rows="4"></textarea>
@@ -135,20 +154,35 @@
       const name = document.getElementById('name').value.trim();
       const company = document.getElementById('company').value.trim();
       const email = document.getElementById('email').value.trim();
+      const interest = document.querySelector('input[name="interest"]:checked')?.value || '';
       const message = document.getElementById('message').value.trim();
       const consent = document.getElementById('consent').checked;
 
-      if (!name || !company || !email || !consent) return;
+      if (!name || !company || !email || !interest || !consent) return;
 
-      const subject = encodeURIComponent('Talent Intelligence Report Request');
+      const subject = encodeURIComponent(`VS.talent enquiry — ${interest}`);
       const body = encodeURIComponent(
-        `Name: ${name}\nCompany: ${company}\nEmail: ${email}\n` +
+        `Name: ${name}\nCompany: ${company}\nEmail: ${email}\nI'm interested in: ${interest}\n` +
         (message ? `Message: ${message}\n` : '') +
         `Consent: I agree to receive VS.talent intelligence materials`
       );
 
       window.location.href = `mailto:daniel.woh@vstalent.com?subject=${subject}&body=${body}`;
     });
+
+    (function preselectInterest() {
+      const map = {
+        search: 'Executive Search',
+        mapping: 'Talent Mapping',
+        intelligence: 'Talent Intelligence',
+        report: 'Request Monthly Report'
+      };
+      const key = new URLSearchParams(window.location.search).get('interest');
+      const value = key ? map[key] : '';
+      if (!value) return;
+      const radio = document.querySelector(`input[name="interest"][value="${value}"]`);
+      if (radio) radio.checked = true;
+    })();
   </script>
 </body>
 </html>

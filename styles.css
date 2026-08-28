@@ -667,29 +667,16 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   font-weight: 400;
 }
 
-.publication__actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 28px;
-  align-items: baseline;
+.publication__access {
+  font-size: 1.0625rem;
+  font-weight: 400;
+  line-height: 1.9;
+  margin-bottom: 16px;
+  max-width: 56ch;
 }
 
-.publication__actions .btn {
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 4px;
-  line-height: 1.45;
-  border-bottom: none;
-}
-
-.publication__actions .btn span:first-child {
-  border-bottom: 1px solid currentColor;
-  padding-bottom: 3px;
-}
-
-.publication__actions .btn span:last-child {
-  font-size: 12px;
-  color: var(--muted-light);
+.publication__access + .hero__actions {
+  margin-top: 32px;
 }
 
 .btn {
@@ -815,6 +802,51 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
 .form-checkbox input {
   margin-top: 4px;
   flex-shrink: 0;
+}
+
+.form-interest {
+  border: none;
+  padding: 0;
+  margin: 0 0 32px;
+  min-width: 0;
+}
+
+.form-interest legend {
+  display: block;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted-light);
+  margin-bottom: 16px;
+  padding: 0;
+}
+
+.form-radio {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 12px;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  line-height: 1.65;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.form-radio:last-child {
+  margin-bottom: 0;
+}
+
+.form-radio input {
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+.form-radio span {
+  color: var(--text);
 }
 
 .form-submit {
