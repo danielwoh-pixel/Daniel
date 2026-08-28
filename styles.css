@@ -184,6 +184,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
 
 .chapter {
   padding: var(--space-chapter) 0;
+  scroll-margin-top: 76px;
 }
 
 .chapter + .chapter {
@@ -303,6 +304,16 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   cursor: zoom-in;
 }
 
+.data-story__visual button {
+  display: block;
+  width: 100%;
+  transition: opacity var(--ease);
+}
+
+.data-story__visual button:hover {
+  opacity: 0.82;
+}
+
 .data-story__visual img {
   background: var(--bg-soft);
 }
@@ -318,7 +329,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
 
 .key-insights {
   list-style: none;
-  margin: 0 0 var(--space-section);
+  margin: 0;
   padding: 0;
   max-width: 720px;
   border-top: 1px solid var(--rule);
@@ -823,7 +834,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
 
 /* Inner pages — legacy block aliases */
 
-.block { padding: var(--space-chapter) 0; }
+.block { padding: var(--space-chapter) 0; scroll-margin-top: 76px; }
 .block + .block, .block { border-top: 1px solid var(--rule); }
 .block--hero { border-top: none; padding-top: clamp(120px, 16vw, 180px); }
 .block--soft { background: var(--bg-soft); }
