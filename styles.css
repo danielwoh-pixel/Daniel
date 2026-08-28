@@ -195,6 +195,24 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   padding-bottom: var(--space-section);
 }
 
+.hero__layout {
+  display: grid;
+  grid-template-columns: 1fr 180px;
+  gap: clamp(32px, 6vw, 72px);
+  align-items: start;
+}
+
+.hero__cover {
+  margin-top: 8px;
+}
+
+.hero__cover img {
+  width: 100%;
+  height: auto;
+  display: block;
+  background: var(--text);
+}
+
 .chapter--soft { background: var(--bg-soft); }
 
 .chapter--light {
@@ -296,7 +314,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   color: var(--muted-light);
 }
 
-/* July key insights */
+/* Report highlights */
 
 .key-insights {
   list-style: none;
@@ -532,10 +550,14 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
 .publication__cover {
   aspect-ratio: 3 / 4;
   background: var(--text);
-  color: #fff;
-  padding: 28px 24px;
-  display: flex;
-  flex-direction: column;
+  overflow: hidden;
+}
+
+.publication__cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .publication__cover-publisher {
@@ -639,6 +661,24 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   flex-wrap: wrap;
   gap: 28px;
   align-items: baseline;
+}
+
+.publication__actions .btn {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  line-height: 1.45;
+  border-bottom: none;
+}
+
+.publication__actions .btn span:first-child {
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 3px;
+}
+
+.publication__actions .btn span:last-child {
+  font-size: 12px;
+  color: var(--muted-light);
 }
 
 .btn {
@@ -1090,6 +1130,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   .data-story__row--reverse,
   .profile-grid,
   .split,
+  .hero__layout,
   .publication,
   .report-intro,
   .principle-grid,
@@ -1126,6 +1167,8 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   .nav-toggle { display: flex; }
 
   .hero__metrics { flex-direction: column; gap: 28px; }
+
+  .hero__cover { max-width: 180px; }
 
   .profile-grid { grid-template-columns: 1fr; }
 
