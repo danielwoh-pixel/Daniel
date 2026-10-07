@@ -5,6 +5,7 @@ reports/*.pdf
 # Extraction / working files
 _july_extract/
 _august_extract/
+_september_extract/
 report_extract_*.txt
 
 # OS

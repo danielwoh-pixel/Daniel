@@ -68,20 +68,20 @@
           <fieldset class="form-field form-interest">
             <legend>I'm interested in</legend>
             <label class="form-radio">
-              <input type="radio" name="interest" value="Executive Search" required>
-              <span>Executive Search</span>
+              <input type="radio" name="interest" value="Request Full Report" required>
+              <span>Request Full Report</span>
             </label>
             <label class="form-radio">
-              <input type="radio" name="interest" value="Talent Mapping">
-              <span>Talent Mapping</span>
+              <input type="radio" name="interest" value="Request Talent Mapping">
+              <span>Request Talent Mapping</span>
+            </label>
+            <label class="form-radio">
+              <input type="radio" name="interest" value="Executive Search">
+              <span>Executive Search</span>
             </label>
             <label class="form-radio">
               <input type="radio" name="interest" value="Talent Intelligence">
               <span>Talent Intelligence</span>
-            </label>
-            <label class="form-radio">
-              <input type="radio" name="interest" value="Request Monthly Report">
-              <span>Request Monthly Report</span>
             </label>
           </fieldset>
           <div class="form-field form-field--optional">
@@ -98,7 +98,7 @@
         </form>
       </div>
       <div class="container">
-        <p class="confidentiality-note">Reports are shared upon request due to confidentiality of candidate data.</p>
+        <p class="confidentiality-note">Full monthly reports are shared upon request with hiring managers, HR leaders and selected industry partners due to candidate confidentiality.</p>
       </div>
     </section>
 
@@ -173,9 +173,9 @@
     (function preselectInterest() {
       const map = {
         search: 'Executive Search',
-        mapping: 'Talent Mapping',
+        mapping: 'Request Talent Mapping',
         intelligence: 'Talent Intelligence',
-        report: 'Request Monthly Report'
+        report: 'Request Full Report'
       };
       const key = new URLSearchParams(window.location.search).get('interest');
       const value = key ? map[key] : '';
