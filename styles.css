@@ -749,6 +749,14 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   margin-bottom: 8px;
 }
 
+.contact-card__role {
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 4px;
+}
+
 .contact-card__loc {
   font-size: 15px;
   font-weight: 400;
@@ -789,7 +797,8 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
 }
 
 .form-field input,
-.form-field textarea {
+.form-field textarea,
+.form-field select {
   width: 100%;
   border: none;
   border-bottom: 1px solid var(--rule);
@@ -803,8 +812,24 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   transition: border-color var(--ease);
 }
 
+.form-field select {
+  appearance: none;
+  border-radius: 0;
+  cursor: pointer;
+  padding-right: 28px;
+  background-image: linear-gradient(45deg, transparent 50%, var(--muted) 50%), linear-gradient(135deg, var(--muted) 50%, transparent 50%);
+  background-position: calc(100% - 10px) calc(50% - 2px), calc(100% - 4px) calc(50% - 2px);
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+}
+
+.form-field select:invalid {
+  color: var(--muted);
+}
+
 .form-field input:focus,
-.form-field textarea:focus {
+.form-field textarea:focus,
+.form-field select:focus {
   outline: none;
   border-color: var(--text);
 }
@@ -835,51 +860,6 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
 .form-checkbox input {
   margin-top: 4px;
   flex-shrink: 0;
-}
-
-.form-interest {
-  border: none;
-  padding: 0;
-  margin: 0 0 32px;
-  min-width: 0;
-}
-
-.form-interest legend {
-  display: block;
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--muted-light);
-  margin-bottom: 16px;
-  padding: 0;
-}
-
-.form-radio {
-  display: flex;
-  gap: 12px;
-  align-items: flex-start;
-  margin-bottom: 12px;
-  font-size: 15px;
-  font-weight: 400;
-  letter-spacing: 0;
-  text-transform: none;
-  line-height: 1.65;
-  color: var(--muted);
-  cursor: pointer;
-}
-
-.form-radio:last-child {
-  margin-bottom: 0;
-}
-
-.form-radio input {
-  margin-top: 4px;
-  flex-shrink: 0;
-}
-
-.form-radio span {
-  color: var(--text);
 }
 
 .form-submit {
