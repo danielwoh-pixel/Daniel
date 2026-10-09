@@ -28,7 +28,7 @@
     <section class="page-hero">
       <div class="container">
         <p class="eyebrow">Contact</p>
-        <h1 class="display display--sm">Discuss a mandate.</h1>
+        <h1 class="display display--sm">Let's discuss your next design hire.</h1>
       </div>
     </section>
 
@@ -39,6 +39,7 @@
         </div>
         <div class="contact-card">
           <p class="contact-card__name">Daniel Woh</p>
+          <p class="contact-card__role">Founder &amp; Senior Consultant</p>
           <p class="contact-card__loc">Tokyo | Shanghai</p>
           <a href="mailto:daniel.woh@vstalent.com" class="contact-card__email">daniel.woh@vstalent.com</a>
         </div>
@@ -49,14 +50,14 @@
       <div class="container split">
         <div>
           <p class="eyebrow">Enquiry</p>
-          <h2 class="heading">Let's discuss your next design hire.</h2>
+          <h2 class="heading">Your enquiry.</h2>
           <ul class="path-list">
             <li>Executive Search</li>
             <li>Talent Mapping</li>
             <li>Talent Intelligence</li>
             <li>Creative Projects</li>
           </ul>
-          <p class="body-text" style="margin-top: 28px;">Typical response time: Usually within 24 hours.</p>
+          <p class="body-text" style="margin-top: 28px;">Usually responding within 24 hours.</p>
         </div>
         <form class="request-form" id="report-request-form" novalidate>
           <div class="form-field">
@@ -71,25 +72,17 @@
             <label for="email">Email</label>
             <input type="email" id="email" name="email" required autocomplete="email">
           </div>
-          <fieldset class="form-field form-interest">
-            <legend>I'm interested in</legend>
-            <label class="form-radio">
-              <input type="radio" name="interest" value="Request Full Report" required>
-              <span>Request Full Report</span>
-            </label>
-            <label class="form-radio">
-              <input type="radio" name="interest" value="Request Talent Mapping">
-              <span>Request Talent Mapping</span>
-            </label>
-            <label class="form-radio">
-              <input type="radio" name="interest" value="Executive Search">
-              <span>Executive Search</span>
-            </label>
-            <label class="form-radio">
-              <input type="radio" name="interest" value="Talent Intelligence">
-              <span>Talent Intelligence</span>
-            </label>
-          </fieldset>
+          <div class="form-field">
+            <label for="interest">I'm interested in</label>
+            <select id="interest" name="interest" required>
+              <option value="" selected disabled>Select</option>
+              <option value="Request Full Report">Request Full Report</option>
+              <option value="Request Talent Mapping">Request Talent Mapping</option>
+              <option value="Executive Search">Executive Search</option>
+              <option value="Talent Intelligence">Talent Intelligence</option>
+              <option value="Creative Projects">Creative Projects</option>
+            </select>
+          </div>
           <div class="form-field form-field--optional">
             <label for="message">Message</label>
             <textarea id="message" name="message" rows="4"></textarea>
@@ -160,7 +153,7 @@
       const name = document.getElementById('name').value.trim();
       const company = document.getElementById('company').value.trim();
       const email = document.getElementById('email').value.trim();
-      const interest = document.querySelector('input[name="interest"]:checked')?.value || '';
+      const interest = document.getElementById('interest').value;
       const message = document.getElementById('message').value.trim();
       const consent = document.getElementById('consent').checked;
 
@@ -181,13 +174,16 @@
         search: 'Executive Search',
         mapping: 'Request Talent Mapping',
         intelligence: 'Talent Intelligence',
-        report: 'Request Full Report'
+        report: 'Request Full Report',
+        creative: 'Creative Projects'
       };
       const key = new URLSearchParams(window.location.search).get('interest');
       const value = key ? map[key] : '';
       if (!value) return;
-      const radio = document.querySelector(`input[name="interest"][value="${value}"]`);
-      if (radio) radio.checked = true;
+      const select = document.getElementById('interest');
+      if (select && [...select.options].some(option => option.value === value)) {
+        select.value = value;
+      }
     })();
   </script>
 </body>
