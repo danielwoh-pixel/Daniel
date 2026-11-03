@@ -1,11 +1,16 @@
-# Report PDFs are not published — request-only access
+# Confidential monthly reports, English and Chinese, all editions.
+# Keep local working copies; do not publish or commit them.
 reports/*.pdf
 !reports/.gitkeep
+**/*Design Candidates Report*.pdf
+**/*设计人才报告*.pdf
+**/*Candidates Report*.pdf
 
 # Extraction / working files
 _july_extract/
 _august_extract/
 _september_extract/
+_october_extract/
 report_extract_*.txt
 
 # OS

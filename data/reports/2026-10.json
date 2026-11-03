@@ -1,0 +1,59 @@
+{
+  "reportingMonth": "October 2026",
+  "edition": "October 2026 — Design Talent Intelligence",
+  "dataCutoff": "2026-10-27",
+  "dataCutoffLabel": "Data as of 27 October 2026",
+  "snapshot": "Month-to-date through 27 October 2026. These figures are not a completed-month close.",
+  "previousSnapshot": {
+    "label": "26 September 2026",
+    "totalCandidates": 383
+  },
+  "metrics": {
+    "totalCandidates": 394,
+    "newCandidates": 11,
+    "growthVersusPreviousSnapshotPercent": 2.9,
+    "top10BrandExperience": {
+      "percent": 62.2,
+      "uniqueCandidates": 245
+    },
+    "crossBorderPreference": {
+      "percent": 51.3,
+      "candidates": 198,
+      "eligible": 386
+    },
+    "apparelAndFootwearSharePercent": 83.2,
+    "validSalaryRecords": 116,
+    "salaryCoveragePercent": 29.4,
+    "salaryRecordsDisplayed": 107,
+    "salaryCountriesDisplayed": 8
+  },
+  "executiveSummary": "As of 27 October 2026, the VS.talent database covers 394 global footwear and apparel design professionals who are currently open to new opportunities — 11 more than the September snapshot, representing 2.9% growth. October additions are more evenly split between apparel and footwear; Outdoor and Luxury are the joint leading categories, while flexible engagement preferences have also increased.",
+  "keyInsights": [
+    "Apparel and footwear designers account for 83.2% of the database and remain the core talent supply.",
+    "China received 162 work-location selections; among cross-border inflows alone, China leads with 110 selections versus Japan's 105.",
+    "The Top 10 brands cover 245 candidates, or 62.2%; another 149 come from luxury, fashion, specialist outdoor and regional brands.",
+    "The compensation analysis contains 116 valid records, representing 29.4% coverage; the chart displays 107 records across eight countries."
+  ],
+  "charts": {
+    "leadingBrandEcosystems": "images/analytics/top-brands.jpg",
+    "globalNationalityDistribution": "images/analytics/nationality-distribution.jpg",
+    "preferredWorkDestinations": "images/analytics/preferred-destinations.jpg",
+    "crossBorderTalentMobility": "images/analytics/cross-border-flows.jpg",
+    "nationalityBrandHeatmap": "images/analytics/nationality-brand-heatmap.jpg",
+    "salaryDistribution": "images/analytics/salary-distribution.jpg"
+  },
+  "cover": "images/covers/report-cover-october-2026.jpg",
+  "marketWatch": {
+    "title": "Turning Flexible Preferences into Talent Options",
+    "summary": "Eight of the 11 October additions selected Freelance, Remote or Hybrid. Across the database, 71 candidates made 72 such selections. These preferences do not equal relocation readiness and do not rule out permanent roles. The observation is informed by the October cohort and active international design searches; it is not a measure of the global design-talent market."
+  },
+  "talentSpotlight": {
+    "selectedProfiles": 8,
+    "fromAdditions": 11,
+    "footwearRoles": 4,
+    "apparelRoles": 3,
+    "flexibleModes": 5,
+    "publicNote": "Aggregated only. Exact brands, nationality, location and compensation are not published."
+  },
+  "sourceNote": "Figures verified against the English and Chinese October 2026 Design Candidates Reports. Those reports are not published on this site."
+}

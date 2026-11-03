@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Contact VS.talent — Design talent intelligence and advisory for footwear and apparel brands.">
+  <meta name="description" content="Contact VS.talent — Design talent intelligence and advisory for footwear and apparel brands. Request the October 2026 report.">
   <title>Contact | VS.talent</title>
+  <link rel="canonical" href="https://www.vstalent.com/contact.html">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -54,7 +55,8 @@
             <li>Executive Search</li>
             <li>Talent Mapping</li>
             <li>Talent Intelligence</li>
-            <li>Creative Projects</li>
+            <li>Request Monthly Report</li>
+            <li>Creative Outsourcing</li>
           </ul>
           <p class="body-text" style="margin-top: 28px;">Typical response time: Usually within 24 hours.</p>
         </div>
@@ -74,22 +76,36 @@
           <fieldset class="form-field form-interest">
             <legend>I'm interested in</legend>
             <label class="form-radio">
-              <input type="radio" name="interest" value="Request Full Report" required>
-              <span>Request Full Report</span>
-            </label>
-            <label class="form-radio">
-              <input type="radio" name="interest" value="Request Talent Mapping">
-              <span>Request Talent Mapping</span>
-            </label>
-            <label class="form-radio">
-              <input type="radio" name="interest" value="Executive Search">
+              <input type="radio" name="interest" value="Executive Search" required>
               <span>Executive Search</span>
+            </label>
+            <label class="form-radio">
+              <input type="radio" name="interest" value="Talent Mapping">
+              <span>Talent Mapping</span>
             </label>
             <label class="form-radio">
               <input type="radio" name="interest" value="Talent Intelligence">
               <span>Talent Intelligence</span>
             </label>
+            <label class="form-radio">
+              <input type="radio" name="interest" value="Request Monthly Report">
+              <span>Request Monthly Report</span>
+            </label>
+            <label class="form-radio">
+              <input type="radio" name="interest" value="Creative Outsourcing">
+              <span>Creative Outsourcing</span>
+            </label>
           </fieldset>
+          <div class="form-field" id="edition-field" hidden>
+            <label for="edition">Report edition</label>
+            <select id="edition" name="edition">
+              <option value="October 2026" selected>October 2026</option>
+              <option value="September 2026">September 2026</option>
+              <option value="August 2026">August 2026</option>
+              <option value="July 2026">July 2026</option>
+              <option value="June 2026">June 2026</option>
+            </select>
+          </div>
           <div class="form-field form-field--optional">
             <label for="message">Message</label>
             <textarea id="message" name="message" rows="4"></textarea>
@@ -100,11 +116,12 @@
           </label>
           <div class="form-submit">
             <button type="submit" class="btn btn--fill">Submit Request</button>
+            <p class="form-hint">Submit opens your email application, addressed to daniel.woh@vstalent.com. The enquiry reaches VS.talent only when you send that email.</p>
           </div>
         </form>
       </div>
       <div class="container">
-        <p class="confidentiality-note">Full monthly reports are shared upon request with hiring managers, HR leaders and selected industry partners due to candidate confidentiality.</p>
+        <p class="confidentiality-note">Full monthly reports are available upon request to verified hiring managers, HR leaders and selected industry partners.</p>
       </div>
     </section>
 
@@ -161,14 +178,19 @@
       const company = document.getElementById('company').value.trim();
       const email = document.getElementById('email').value.trim();
       const interest = document.querySelector('input[name="interest"]:checked')?.value || '';
+      const edition = document.getElementById('edition').value;
       const message = document.getElementById('message').value.trim();
       const consent = document.getElementById('consent').checked;
 
       if (!name || !company || !email || !interest || !consent) return;
 
-      const subject = encodeURIComponent(`VS.talent enquiry — ${interest}`);
+      const monthly = interest === 'Request Monthly Report';
+      const subject = encodeURIComponent(monthly
+        ? `VS.talent enquiry — ${interest} — ${edition}`
+        : `VS.talent enquiry — ${interest}`);
       const body = encodeURIComponent(
         `Name: ${name}\nCompany: ${company}\nEmail: ${email}\nI'm interested in: ${interest}\n` +
+        (monthly ? `Report edition: ${edition}\n` : '') +
         (message ? `Message: ${message}\n` : '') +
         `Consent: I agree to receive VS.talent intelligence materials`
       );
@@ -179,15 +201,44 @@
     (function preselectInterest() {
       const map = {
         search: 'Executive Search',
-        mapping: 'Request Talent Mapping',
+        mapping: 'Talent Mapping',
         intelligence: 'Talent Intelligence',
-        report: 'Request Full Report'
+        report: 'Request Monthly Report',
+        outsourcing: 'Creative Outsourcing'
       };
-      const key = new URLSearchParams(window.location.search).get('interest');
-      const value = key ? map[key] : '';
-      if (!value) return;
-      const radio = document.querySelector(`input[name="interest"][value="${value}"]`);
-      if (radio) radio.checked = true;
+      const editions = {
+        '2026-10': 'October 2026',
+        'october-2026': 'October 2026',
+        '2026-09': 'September 2026',
+        'september-2026': 'September 2026',
+        '2026-08': 'August 2026',
+        'august-2026': 'August 2026',
+        '2026-07': 'July 2026',
+        'july-2026': 'July 2026',
+        '2026-06': 'June 2026',
+        'june-2026': 'June 2026'
+      };
+      const params = new URLSearchParams(window.location.search);
+      const value = map[params.get('interest')] || '';
+      const editionValue = editions[(params.get('edition') || '').toLowerCase()] || 'October 2026';
+      const edition = document.getElementById('edition');
+      const editionField = document.getElementById('edition-field');
+      edition.value = editionValue;
+
+      function syncEdition() {
+        const selected = document.querySelector('input[name="interest"]:checked')?.value;
+        editionField.hidden = selected !== 'Request Monthly Report';
+      }
+
+      document.querySelectorAll('input[name="interest"]').forEach(radio => {
+        radio.addEventListener('change', syncEdition);
+      });
+
+      if (value) {
+        const radio = document.querySelector(`input[name="interest"][value="${value}"]`);
+        if (radio) radio.checked = true;
+      }
+      syncEdition();
     })();
   </script>
 </body>
